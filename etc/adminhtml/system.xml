@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="brevo" translate="label" sortOrder="999">
+			<label>Brevo</label>
+		</tab>
+		<section id="brevo_api" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+			<label>API</label>
+			<tab>brevo</tab>
+			<resource>Beljic_Brevo::config_beljic_brevo</resource>
+			<group id="settings" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>Settings</label>
+                <field id="enabled" type="select" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                    <label>Enable</label>
+                    <comment>Enable/disable Brevo API integration</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+				<field id="api_key" type="text" sortOrder="20" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>API Key</label>
+					<comment>Brevo API Key</comment>
+				</field>
+                <field id="cache_ttl" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cache Lifetime (seconds)</label>
+                    <validate>validate-digits</validate>
+                </field>
+			</group>
+		</section>
+	</system>
+</config>

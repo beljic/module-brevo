@@ -1,0 +1,23 @@
+<?php
+declare(strict_types=1);
+
+/** @var BlockInterface $block */
+/** @var CustomerStatus $viewModel */
+
+use Beljic\Brevo\ViewModel\CustomerStatus;
+use Magento\Framework\View\Element\BlockInterface;
+
+$viewModel = $block->getData('viewModel');
+
+if (!$viewModel || !$viewModel->isEnabled()) {
+    return;
+}
+
+if($viewModel->isBlacklisted() === null) {
+    return;
+}
+
+?>
+<span style="color:<?= $viewModel->isBlacklisted() ? 'red' : 'green'; ?>;">
+    <?= $viewModel->isBlacklisted() ? '&#10060; Email blacklisted' : '&#9989; Email OK'; ?>
+</span>

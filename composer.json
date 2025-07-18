@@ -1,0 +1,26 @@
+{
+    "name": "beljic/module-brevo",
+    "description": "Magento 2 integration with Brevo API",
+    "type": "magento2-module",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dejan Beljić",
+            "email": "beljic@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.1",
+        "getbrevo/brevo-php": "^1.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Beljic\\Brevo\\": ""
+        }
+    },
+    "version": "1.1.0"
+}

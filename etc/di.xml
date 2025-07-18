@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Sales\Model\Order\Email\Sender\OrderSender">
+        <plugin name="prevent_blacklisted_order_sender_plugin"
+                type="Beljic\Brevo\Plugin\Email\PreventBlacklistedOrderSender"
+                sortOrder="10"/>
+    </type>
+
+    <type name="Magento\Sales\Model\Order\Email\Sender\InvoiceSender">
+        <plugin name="prevent_blacklisted_invoice_email"
+                type="Beljic\Brevo\Plugin\Email\PreventBlacklistedInvoiceSender"
+                sortOrder="20"/>
+    </type>
+
+    <type name="Magento\Sales\Model\Order\Shipment\Sender\EmailSender">
+        <plugin name="prevent_blacklisted_shipment_email"
+                type="Beljic\Brevo\Plugin\Email\PreventBlacklistedShipmentSender"
+                sortOrder="30"/>
+    </type>
+
+    <preference for="Beljic\Brevo\Api\BrevoClientInterface" type="Beljic\Brevo\Model\BrevoClient"/>
+    <preference for="Beljic\Brevo\Api\BrevoServiceInterface" type="Beljic\Brevo\Service\BrevoService"/>
+</config>
